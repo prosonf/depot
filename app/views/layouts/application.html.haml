@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+  %title Pragprog Books Online Store
+  = stylesheet_link_tag    "application", :media => "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+  %body{:class => controller.controller_name}
+    %div#banner
+      = image_tag("logo.png")
+      = @page_title || "Pragmatic Bookshelf"
+    %div#columns
+      %div#side
+        %ul
+          %li= link_to "Home"#, root_path
+          %li= link_to "Questions"#, faq_path
+          %li= link_to "News"#, news_path
+          %li= link_to "Contact"#, contact_path
+      %div#main
+        =yield
+
